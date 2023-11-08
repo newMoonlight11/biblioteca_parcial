@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block breadcrumb %}
+  <h2 class="breadcrumb-item active" >Crear Libro</h2>
+{% endblock %}
+
+{% block content %}
+	<form action="" enctype="multipart/form-data" method="POST">{% csrf_token %}
+		<div class="row">
+			<div class=" col s12 m8 offset-m6 l6 offset-l3">
+				<div class="card  blue-grey lighten-3">
+					<div class="card-content">
+						<table>
+							{{form.as_table}}	
+						</table>
+					</div>
+					<div class="card-action">
+						<button class="btn waves-effect waves-light  blue-grey" type="submit" name="crear" value="crear">Enviar</button>	
+					</div>
+				</div>
+			</div>
+		</div>				
+	</form>
+	<script>
+		$(document).ready(function() {
+	    $('select').material_select();
+	  });
+	</script>
+{% endblock%}

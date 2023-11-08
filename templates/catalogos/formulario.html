@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+<h2 class="breadcrumb-item active" >Listado de Usuarios</h2>
+{% endblock %}
+
+{% block content %}
+    <div class="container text-center pt-5">
+        <div class='jumbotron'>
+          <center>
+            <div class="text-left" style="max-width:500px">
+              <form action="catalogos/formulario.html" method="post">
+                {% csrf_token %}
+                {% for field in register_form %}
+                <div class='form-group'>
+                  <label for="{{ field.name }}">{{ field.label }}</label>
+                  {{ field }}
+                </div>
+                {% endfor %}
+                <br>
+                <center><button type="submit" class="btn btn-success btn-lg">Registrar usuario</button></center>
+              </form>
+            </div>
+          </center>
+          <br>
+          <table  class="table table-striped table-bordered">
+            <thead class="thead-dark">
+              <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Telefono</th>
+                <th>Fecha de nacimiento</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+    <tbody>
+              {% for user in usuarios %}
+              <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.nombre }}</td>
+                <td>{{ user.apellido }}</td>
+                <td>{{ user.telefono }}</td>
+                <td>{{ user.fechaNacimiento }}</td>
+                <td>{{ user.email }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% endblock %}

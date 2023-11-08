@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block breadcrumb %}
+  <h2 class="breadcrumb-item active" >Listado de Anuncios</h2>
+{% endblock %}
+
+{% block content %}
+  <div id="content">
+
+    <table class="table" id="corcho">
+        <tbody>
+            <tr>
+              <td>
+                {% for anuncio in anuncios %}
+                    <ol id="lista5">
+                        <li> {{ anuncio.titulo }}
+                        <small class="text-muted d-block"> {{ anuncio.texto }}</small>
+                        <small class="text-muted d-block"> {{ anuncio.fechaCreacion }}</small>
+                        </li>
+                    </ol>
+                {% endfor %}
+              </td>
+            </tr>
+        </tbody>
+      </table>
+  </div>
+  {% endblock %}

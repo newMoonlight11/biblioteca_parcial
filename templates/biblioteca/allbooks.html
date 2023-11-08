@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}
+  <h2 class="breadcrumb-item active" >Listado de Libros</h2>
+{% endblock %}
+
+{% block content %}
+
+<div class="row" id="tablero1">
+  
+  {% for libro in object_list  %}
+  
+    <div class="col s12 l4 m5" >
+      <div class="card shadow p-3 mb-3 my-3 bg-white rounded" >
+
+        <div class="card-image-top" alt="Card image cap">
+          <a href="{{ MEDIA_URL }}{{ libro.imagen.url }}" target="_blank">
+          <img src="{{ MEDIA_URL }}{{ libro.imagen.url }}" style="width:180px; height:210px;"/>
+          </a>
+        </div>
+        <div class="card-body">
+        <div class="card-content blue-grey ">
+
+            {% for autor in libro.autores.all %}   
+           
+            <strong>Libro: </strong><span class="card-title" style="color:#546e7a;"><strong>{{  libro.titulo }}</strong></span>
+            
+            <ol id="lista3">
+              <li>Autor(es): {{ autor.nombre }} {{ autor.apellido }}</li>
+              <li>editorial: {{ libro.editor }}</li>
+              <li>Fecha de Publicacion: {{libro.fecha_publicacion }}</li>
+            </ol>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="card-footer">
+          <h6>Comentarios</h6>
+          <div class="row justify-content-md-center"> 
+           <small class="text-muted">{{ libro.resumen }} </small>
+          </div>
+        </div>
+       
+        </div>
+
+      </div>
+    </div>
+   
+  {% endfor %} 
+  </div> 
+  <br>
+
+
+  {% endblock %}

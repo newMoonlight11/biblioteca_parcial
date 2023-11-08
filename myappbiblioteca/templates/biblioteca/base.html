@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}My primera App web{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css?family=Peralta" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/anuncios.css' %}">
+
+  {% block stylesheet %}{% endblock %}
+</head>
+
+{% block body %}
+
+<body>
+  <div class=".container-fluid">
+
+    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #EDE5DA;">
+
+      <img src="{% static 'img/Biblioteca.png' %}" whith ="10px" height ="100px">
+
+      <div>
+        <h4 style="color:#6a2393;"> My Biblioteca</h4>
+        <h4 style="color:#b07c1c;"> ONLINE</h4>
+      </div>
+
+      <ul class="navbar-nav ml-auto">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+          <button class="btn btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </ul>
+    </nav>
+
+    <nav class="navbar navbar-expand-sm navbar-light "  >
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+    
+    <ul class="nav nav-tabs ">
+      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/" aria-selected="true">Home</a></li>        
+      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/anuncios/"aria-selected="false">Anuncios</a></li>
+      <li class="nav-item"><a class="nav-link" href="#"aria-selected="false">Eventos</a></li>
+      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/estudiantes/"aria-selected="false">Estudiantes</a></li>
+      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/biblioteca/"aria-selected="false">Nuestros Libros</a></li>
+      <li class="nav-item"><a class="nav-link" href="http://127.0.0.1:8000/admin/" aria-selected="true"> Admin</a></li>    
+        </ul> 
+    </nav>
+
+   
+    <div class="container">
+      <ol class="breadcrumb my-4">
+        {% block breadcrumb %}{% endblock %}
+      </ol>
+      {% block content %}{% endblock %}
+
+
+    {% endblock body %}
+
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% block javascript %}{% endblock %}
+
+</body>
+
+<footer class="page-footer font-small" style="background-color:#2F3858;">
+
+  <div class="footer-copyright text-light text-center py-3">
+    <h6>Ejercicio de Programacion de Computadores © 2021 </h6>
+    <a href="#"> ygamba@unab.edu.co</a>
+    <br> Elaborado por: Yamid Gamba
+  </div>
+</footer>
+
+</html>
